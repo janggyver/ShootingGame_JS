@@ -11,6 +11,7 @@ function init(){
     output = document.getElementById('output');
     // FPS--> 50*20 = 1000
     getTimer = setInterval(gameloop, 250);
+    
     placeMonkey();   
 }
 // Animation
@@ -22,19 +23,21 @@ function gameloop(){
 }
 
 function placeMonkey(){
-    var x = Math.floor(Math.random()* 500);
+    var x = Math.floor(Math.random()* 400);
     monkey_01.style.left = x + 'px';
     monkey_01.style.top = '350px';    
 }
 function hitMonkey(){
-    // output.innerHTML = 'No animals are harmed playing of this game';
+     output.innerHTML = 'No animals are harmed playing of this game';
     
     numHits ++;
-    // output.innerHTML = numHits;
+    output.innerHTML = numHits;
     if(numHits==3) {
         alert('You win!');
-    //clearInterval(gameTimer);
+    clearInterval(gameTimer);
+    numHits = 0;
     init();
-    }
+    } 
+    
     placeMonkey();
 }
